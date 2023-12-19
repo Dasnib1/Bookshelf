@@ -11,10 +11,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
@@ -75,55 +80,98 @@ fun BookDetails(book: Book) {
                 placeholder = painterResource(id = R.drawable.loading_img),
             )
             Spacer(modifier = Modifier.height(24.dp))
+
             Text(
-                text = "Título: " + book.volumeInfo.title,
+                text = book.volumeInfo.title,
                 style = MaterialTheme.typography.titleLarge
             )
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(16.dp))
+
             Text(
-                text = stringResource(R.string.book_authors, book.volumeInfo.allAuthors()),
-                style = MaterialTheme.typography.titleMedium
+                buildAnnotatedString {
+                    withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                        append(stringResource(R.string.libro_autores))
+                    }
+                    append(book.volumeInfo.allAuthors())
+                }
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Text(
+                buildAnnotatedString {
+                    withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                        append(stringResource(R.string.libro_editorial))
+                    }
+                    append(book.volumeInfo.publisher)
+                }
             )
 
             Spacer(modifier = Modifier.height(8.dp))
+
             Text(
-                text = stringResource(R.string.book_price, book.saleInfo.getPrice),
-                style = MaterialTheme.typography.titleMedium
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = "País: " + book.saleInfo.country,
-                style = MaterialTheme.typography.titleMedium
+                buildAnnotatedString {
+                    withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                        append(stringResource(R.string.libro_fecha_publicacion))
+                    }
+                    append(book.volumeInfo.publishedDate)
+                }
             )
 
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = "Páginas: " + book.volumeInfo.pageCount,
-                style = MaterialTheme.typography.bodyMedium
-            )
+            Spacer(modifier = Modifier.height(20.dp))
+
+            Row {
+                Text(
+                    buildAnnotatedString {
+                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                            append(stringResource(R.string.libro_precio))
+                        }
+                        append(book.saleInfo.getPrice)
+                    }
+                )
+                Spacer(modifier = Modifier.width(16.dp))
+                Text(
+                    buildAnnotatedString {
+                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                            append(stringResource(R.string.libro_pais))
+                        }
+                        append(book.saleInfo.country)
+                    }
+                )
+            }
 
             Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = "Editorial: " + book.volumeInfo.publisher,
-                style = MaterialTheme.typography.bodyMedium
-            )
 
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = "Anno publi: " + book.volumeInfo.publishedDate,
-                style = MaterialTheme.typography.bodyMedium
-            )
+            Row {
+                Text(
+                    buildAnnotatedString {
+                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                            append(stringResource(R.string.libro_paginas))
+                        }
+                        append((book.volumeInfo.pageCount).toString() + "p")
+                    }
+                )
+                Spacer(modifier = Modifier.width(24.dp))
 
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = "Valoracion: " + book.volumeInfo.averageRating,
-                style = MaterialTheme.typography.bodyMedium
-            )
+                Text(
+                    buildAnnotatedString {
+                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                            append(stringResource(R.string.libro_valoracion))
+                        }
+                        append((book.volumeInfo.averageRating).toString())
+                    }
+                )
+            }
 
-            Spacer(modifier = Modifier.height(8.dp))
+
+            Spacer(modifier = Modifier.height(20.dp))
+
             Text(
-                text = "Descripción: " + book.volumeInfo.description,
-                style = MaterialTheme.typography.bodyMedium
+                buildAnnotatedString {
+                    withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                        append(stringResource(R.string.libro_descripcion))
+                    }
+                    append((book.volumeInfo.description))
+                }
             )
 
 

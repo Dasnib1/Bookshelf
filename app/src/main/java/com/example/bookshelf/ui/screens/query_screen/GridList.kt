@@ -84,6 +84,11 @@ private fun GridItem(
                 placeholder = painterResource(id = R.drawable.loading_img),
                 contentScale = ContentScale.FillBounds
             )
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = book.volumeInfo.title,
+                style = MaterialTheme.typography.titleMedium
+            )
 
         }
     }
