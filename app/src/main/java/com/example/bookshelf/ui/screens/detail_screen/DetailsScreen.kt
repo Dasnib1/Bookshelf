@@ -62,10 +62,7 @@ fun BookDetails(book: Book) {
             modifier = Modifier.padding(8.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Text(
-                text = "Título: " + book.volumeInfo.title,
-                style = MaterialTheme.typography.titleLarge
-            )
+
             AsyncImage(
                 modifier = Modifier.fillMaxWidth(),
                 model = ImageRequest.Builder(context = LocalContext.current)
@@ -79,10 +76,10 @@ fun BookDetails(book: Book) {
             )
             Spacer(modifier = Modifier.height(24.dp))
             Text(
-                text = stringResource(R.string.book_subtitle, book.volumeInfo.subtitle),
-                style = MaterialTheme.typography.titleMedium
+                text = "Título: " + book.volumeInfo.title,
+                style = MaterialTheme.typography.titleLarge
             )
-
+            Spacer(modifier = Modifier.height(12.dp))
             Text(
                 text = stringResource(R.string.book_authors, book.volumeInfo.allAuthors()),
                 style = MaterialTheme.typography.titleMedium
@@ -97,6 +94,30 @@ fun BookDetails(book: Book) {
             Text(
                 text = "País: " + book.saleInfo.country,
                 style = MaterialTheme.typography.titleMedium
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = "Páginas: " + book.volumeInfo.pageCount,
+                style = MaterialTheme.typography.bodyMedium
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = "Editorial: " + book.volumeInfo.publisher,
+                style = MaterialTheme.typography.bodyMedium
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = "Anno publi: " + book.volumeInfo.publishedDate,
+                style = MaterialTheme.typography.bodyMedium
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = "Valoracion: " + book.volumeInfo.averageRating,
+                style = MaterialTheme.typography.bodyMedium
             )
 
             Spacer(modifier = Modifier.height(8.dp))

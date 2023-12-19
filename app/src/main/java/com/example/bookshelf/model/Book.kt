@@ -5,7 +5,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Book(
     val id: String,
-    val descripcion: String,
     val volumeInfo: VolumeInfo,
     val saleInfo: SaleInfo
 )
@@ -13,12 +12,13 @@ data class Book(
 @Serializable
 data class VolumeInfo(
     val title: String,
-    val subtitle: String,
     val description: String,
     val imageLinks: ImageLinks? = null,
     val authors: List<String>,
     val publisher: String,
     val publishedDate: String,
+    val pageCount: Int,
+    val averageRating: Float,
 ) {
     fun allAuthors() : String {
         var x= ""
@@ -39,16 +39,15 @@ data class ImageLinks(
 @Serializable
 data class SaleInfo(
     val country: String,
-    val isEbook: Boolean,
     val listPrice: ListPrice?
 ) {
     val getPrice : String
-        get() = "${listPrice?.amount ?: "N/A"}"
+        get() = "${listPrice?.amount ?: "N/A"} ${listPrice?.currencyCode ?: "N/A"}"
 
 }
 
 @Serializable
 data class ListPrice(
     val amount: Float?,
-    val currency: String? = ""
+    val currencyCode: String? = ""
 )

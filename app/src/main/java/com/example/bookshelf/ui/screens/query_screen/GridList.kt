@@ -32,8 +32,8 @@ fun GridList(
         LazyVerticalGrid(
             columns = GridCells.Adaptive(150.dp),
             modifier = modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(24.dp),
-            contentPadding = PaddingValues(24.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+            contentPadding = PaddingValues(4.dp),
         ) {
             items(
                 items = bookshelfList,
