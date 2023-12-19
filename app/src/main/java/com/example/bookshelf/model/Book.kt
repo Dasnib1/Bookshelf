@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Book(
     val id: String,
-    val description: String,
+    val descripcion: String,
     val volumeInfo: VolumeInfo,
     val saleInfo: SaleInfo
 )
@@ -20,9 +20,6 @@ data class VolumeInfo(
     val publisher: String,
     val publishedDate: String,
 ) {
-    val allAuthorsx: String
-        get() = allAuthors()
-
     fun allAuthors() : String {
         var x= ""
         for (author in authors) {
@@ -36,10 +33,7 @@ data class VolumeInfo(
 data class ImageLinks(
     val smallThumbnail: String,
     val thumbnail: String,
-) {
-    val httpsThumbnail : String
-        get() = thumbnail.replace("http", "https")
-}
+)
 
 
 @Serializable
@@ -48,8 +42,7 @@ data class SaleInfo(
     val isEbook: Boolean,
     val listPrice: ListPrice?
 ) {
-    // Notes: This works...
-    val getPrice2 : String
+    val getPrice : String
         get() = "${listPrice?.amount ?: "N/A"}"
 
 }

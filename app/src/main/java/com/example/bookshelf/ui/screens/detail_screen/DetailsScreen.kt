@@ -56,7 +56,6 @@ fun BookDetails(book: Book) {
             .fillMaxWidth()
             .verticalScroll(rememberScrollState()),
         shape = RoundedCornerShape(8.dp),
-        //border = BorderStroke(2.dp, Color.Green),
         elevation = CardDefaults.cardElevation()
     ) {
         Column(
@@ -91,7 +90,7 @@ fun BookDetails(book: Book) {
 
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = stringResource(R.string.book_price, book.saleInfo.getPrice2),
+                text = stringResource(R.string.book_price, book.saleInfo.getPrice),
                 style = MaterialTheme.typography.titleMedium
             )
             Spacer(modifier = Modifier.height(8.dp))

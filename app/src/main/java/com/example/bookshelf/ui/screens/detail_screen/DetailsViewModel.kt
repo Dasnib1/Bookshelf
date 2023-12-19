@@ -23,7 +23,6 @@ class DetailsViewModel(
     fun getBook(id: String) {
         viewModelScope.launch {
             _uiStateDetail.value = try {
-                // Notes: List<Book>? NULLABLE
                 val book = bookshelfRepository.getBook(id)
                 if (book == null) {
                     DetailsUiState.Error
@@ -38,9 +37,7 @@ class DetailsViewModel(
         }
     }
 
-    /**
-     * Factory for BookshelfViewModel] that takes BookshelfRepository] as a dependency
-     */
+
     companion object {
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {

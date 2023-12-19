@@ -31,10 +31,7 @@ fun QueryScreen(
 
 
     val focusManager = LocalFocusManager.current
-    // Notes:  using viewModel to hold the state of query
-    //var query by rememberSaveable {
-    //    mutableStateOf("")
-    //}
+
 
     Column {
         OutlinedTextField(
@@ -81,27 +78,3 @@ fun QueryScreen(
         }
     }
 }
-
-
-//// Notes: the reason we see the images as the are is because it is using the image placeholder in AsyncImage
-//@Preview(showBackground = true, showSystemUi = true)
-//@Composable
-//fun HomeScreenPreview() {
-//    BookshelfTheme {
-//        val mockData = List(10) {
-//            Book(
-//                "Lorem Ipsum - $it",
-//                volumeInfo = VolumeInfo(
-//                    title = "xxx $it",
-//                    description = "xxx $it",
-//                    imageLinks = null,
-//                )
-//            )
-//        }
-//        GridScreen(
-//            bookshelfList = mockData,
-//            modifier = Modifier,
-//            onDetailsClick = { }
-//        )
-//    }
-//}

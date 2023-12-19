@@ -28,7 +28,6 @@ val md_theme_light_onSurfaceVariant = Color(0xFF49454F)
 val md_theme_light_inverseSurface = Color(0xFF313033)
 val md_theme_light_inverseOnSurface = Color(0xFFF4EFF4)
 val md_theme_light_inversePrimary = Color(0xFFD0BCFF)
-val md_theme_light_shadow = Color(0xFF000000)
 val md_theme_light_surfaceTint = Color(0xFF6750A4)
 val md_theme_light_outlineVariant = Color(0xFFCAC4D0)
 val md_theme_light_scrim = Color(0xFF000000)
@@ -59,27 +58,7 @@ val md_theme_dark_onSurfaceVariant = Color(0xFFCAC4D0)
 val md_theme_dark_inverseSurface = Color(0xFFE6E1E5)
 val md_theme_dark_inverseOnSurface = Color(0xFF313033)
 val md_theme_dark_inversePrimary = Color(0xFF6750A4)
-val md_theme_dark_shadow = Color(0xFF000000)
 val md_theme_dark_surfaceTint = Color(0xFFD0BCFF)
 val md_theme_dark_outlineVariant = Color(0xFF49454F)
 val md_theme_dark_scrim = Color(0xFF000000)
-
-
-val seed = Color(0xFF6750A4)
-
-//import androidx.compose.ui.graphics.Color
-//
-//val Purple200 = Color(0xFFBB86FC)
-//val Purple500 = Color(0xFF6200EE)
-//val Purple700 = Color(0xFF3700B3)
-//val Teal200 = Color(0xFF03DAC5)
-//
-//
-//val primaryColor = Color(0xFFfdd835)
-//val primaryLightColor = Color(0xFFffff6b)
-//val primaryDarkColor = Color(0xFFc6a700)
-//val primaryTextColor = Color(0xFF000000)
-//
-//val xxxprimaryTextColor = Color(0xFFfcd734)
-//
 
